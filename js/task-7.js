@@ -1,15 +1,27 @@
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
 const isLoginValid = function (login) {
-  // твій код
+  const MIN_LOGIN_LENGTH = 4;
+  const MAX_LOGIN_LENGTH = 16;
+
+  return login.length >= MIN_LOGIN_LENGTH && login.length <= MAX_LOGIN_LENGTH;
 };
 
 const isLoginUnique = function (allLogins, login) {
-  // твій код
+  return !allLogins.includes(login);
 };
 
 const addLogin = function (allLogins, login) {
-  // твій код
+  if (!isLoginValid(login)) {
+    return 'Помилка! Логін повинен бути від 4 до 16 символів';
+  }
+
+  if (!isLoginUnique(allLogins, login)) {
+    return 'Такий логін уже використовується!';
+  }
+
+  allLogins.push(login);
+  return 'Логін успішно доданий!';
 };
 
 /*
